@@ -1,0 +1,7 @@
+<form (ngSubmit)="enviar()" #formUpdates="ngForm">
+	<div class="">
+		<h5>Archivo</h5>
+		<file-upload class="dropzone" [(ngModel)]="uploadedFiles" [control]="fileUploadControl" name="imagen" #imagenVa="ngModel" required></file-upload>
+		<button type="submit" class="btn btn-primary btn-block text-centered">Enviar</button>
+	</div>
+</form>

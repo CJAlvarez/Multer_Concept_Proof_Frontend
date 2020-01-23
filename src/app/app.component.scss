@@ -1,0 +1,25 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+.contMd {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: center;
+  }
+  @include media-breakpoint-up(xl) {
+    display: inline;
+  }
+}
+
+.otherProfile {
+  display: flex;
+  justify-content: center;
+}
+// .sessiones {
+//   @include media-breakpoint-up(xl) {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//   }
+// }
