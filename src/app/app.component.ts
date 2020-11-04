@@ -20,26 +20,30 @@ export class AppComponent implements OnInit, OnDestroy {
 	public fileUploadControl = new FileUploadControl();
 
 	ngOnInit() {
-		
+
 	}
 	ngOnDestroy() {
 	}
 
 	enviar() {
-		this.submittedUpload = true
+		this.submittedUpload = true;
 		if (this.formUpdates.valid) {
-			const formData = new FormData()
-			formData.append("file", this.uploadedFiles[0], this.uploadedFiles[0]['name'])
+			const formData = new FormData();
+			formData.append("file", this.uploadedFiles[0], this.uploadedFiles[0]['name']);
+			formData.append("col_name", "CELULAR1");
 			this.appService.upload_file(formData).subscribe(
 				result => {
-					this.update_status.emit(true)
-					this.submittedUpload = false
+					this.update_status.emit(true);
+					this.submittedUpload = false;
 				},
 				error => {
+					console.log(error);
+					alert("ERROR!");
 				},
 				() => {
-					this.fileUploadControl.removeFile(this.uploadedFiles[0])
-					this.formUpdates.reset()
+					this.fileUploadControl.removeFile(this.uploadedFiles[0]);
+					this.formUpdates.reset();
+					alert("DONE!");
 				}
 			);
 		}
